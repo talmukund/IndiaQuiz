@@ -1,0 +1,20 @@
+{
+  "name": "questionList",
+  "questions": [
+    {
+      "id": "04d11d89-97b2-4426-b498-3716e34337b1",
+      "question": "Where is capital of India?",
+      "options": ["Delhi", "Mumbai", "Kolkata", "Banglore"]
+    },
+    {
+      "id": "b4582e01-c6cf-4549-895b-d3afda4b643f",
+      "question": "Where is Gateway of India?",
+      "options": ["Delhi", "Mumbai", "Kolkata", "Banglore"]
+    },
+    {
+      "id": "daf4b99b-5a86-4bc1-9d5e-5b01cc01d90a",
+      "question": "Where is Victoria Palace?",
+      "options": ["Delhi", "Mumbai", "Kolkata", "Banglore"]
+    }
+  ]
+}
