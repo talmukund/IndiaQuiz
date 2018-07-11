@@ -51,7 +51,6 @@ class QuestionCard extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     const { classes } = this.props;
     return (
       <div>
@@ -61,7 +60,7 @@ class QuestionCard extends React.Component {
             component="h3"
             style={{ color: "white" }}
           >
-            20
+            {this.props.testPeriod % 60}
           </Typography>
           <Typography component="h6" style={{ color: "white" }}>
             seconds
@@ -73,7 +72,7 @@ class QuestionCard extends React.Component {
             component="h3"
             style={{ color: "white" }}
           >
-            20
+            {Math.floor(this.props.testPeriod / 60)}
           </Typography>
           <Typography component="h6" style={{ color: "white" }}>
             minutes
@@ -104,7 +103,8 @@ class QuestionCard extends React.Component {
 }
 
 QuestionCard.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  testPeriod: PropTypes.number.isRequired
 };
 
 export default withStyles(styles)(QuestionCard);
