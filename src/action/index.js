@@ -1,6 +1,8 @@
-export default function testAction() {
+export function PushAnswer(question) {
   return {
-    type: "TEST_ACTION",
-    payload: {}
+    type: "PUSH_ANSWER",
+    payload: {
+      result: question
+    }
   };
 }

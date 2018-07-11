@@ -1,11 +1,17 @@
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import LandingPage from "../component/LandingPage";
-import Actions from "../action";
+import * as Actions from "../action";
 
-const mapStateToProps = state => ({});
+const actions = {
+  ...Actions
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch);
+const mapStateToProps = state => ({
+  answers: state.questionReducer.answer
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
 
 export default connect(
   mapStateToProps,
