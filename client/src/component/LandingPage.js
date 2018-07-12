@@ -32,7 +32,10 @@ class LandingPage extends Component {
       <div>
         <TopHeader />
         {this.state.islaunched ? (
-          <QuestionCard testPeriod={this.state.testPeriod} />
+          <QuestionCard
+            testPeriod={this.state.testPeriod}
+            PushAnswer={this.props.PushAnswer}
+          />
         ) : (
           <Button
             variant="contained"
