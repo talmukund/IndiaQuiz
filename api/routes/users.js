@@ -15,6 +15,11 @@ router.get(
   }
 );
 
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/login");
+});
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
 

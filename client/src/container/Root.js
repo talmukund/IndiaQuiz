@@ -7,6 +7,7 @@ import green from "@material-ui/core/colors/green";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import configureStore from "../store/configureStore";
 import App from "./App";
+import LoginFormPage from "./LoginFormPage";
 
 import LandingPageContainer from "./LandingPageContainer";
 // A theme with custom primary and secondary color.
@@ -36,6 +37,7 @@ export default class Root extends Component {
           <BrowserRouter>
             <App>
               <Switch>
+                <Route path="/login" component={LoginFormPage} />
                 <Route path="/" component={LandingPageContainer} />
               </Switch>
             </App>
