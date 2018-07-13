@@ -35,6 +35,7 @@ class LandingPage extends Component {
           <QuestionCard
             testPeriod={this.state.testPeriod}
             PushAnswer={this.props.PushAnswer}
+            PushAnswer={this.props.PushAnswer}
           />
         ) : (
           <Button

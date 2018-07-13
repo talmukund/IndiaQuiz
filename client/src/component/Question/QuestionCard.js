@@ -8,8 +8,9 @@ import QuestionComponent from "./QuestionComponent";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import { withRouter } from "react-router-dom";
 
-import QuestionList from "./QuestionList.json";
+import QuestionList from "../../utils/QuestionList.json";
 
 const styles = theme => ({
   card: {
@@ -34,20 +35,23 @@ class QuestionCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedIndex: 0
+      selectedIndex: 0,
+      value: ""
     };
   }
 
   handleNextQuestion = () => {
+    const question = QuestionList.questions[this.state.selectedIndex];
+    this.props.PushAnswer(question.id, this.state.value);
     if (this.state.selectedIndex < QuestionList.questions.length - 1) {
-      this.setState({ selectedIndex: this.state.selectedIndex + 1 });
+      this.setState({ selectedIndex: this.state.selectedIndex + 1, value: "" });
+    } else {
+      return this.props.history.push("/submit");
     }
   };
 
-  handlePreviousQuestion = () => {
-    if (this.state.selectedIndex > 0) {
-      this.setState({ selectedIndex: this.state.selectedIndex - 1 });
-    }
+  handleChange = event => {
+    this.setState({ value: event.target.value });
   };
 
   render() {
@@ -82,12 +86,11 @@ class QuestionCard extends React.Component {
           <CardContent>
             <QuestionComponent
               question={QuestionList.questions[this.state.selectedIndex]}
+              value={this.state.value}
+              handleChange={this.handleChange}
             />
           </CardContent>
           <CardActions>
-            <Button variant="contained" onClick={this.handlePreviousQuestion}>
-              Previous
-            </Button>
             <Button
               variant="contained"
               color="primary"
@@ -107,4 +110,4 @@ QuestionCard.propTypes = {
   testPeriod: PropTypes.number.isRequired
 };
 
-export default withStyles(styles)(QuestionCard);
+export default withRouter(withStyles(styles)(QuestionCard));

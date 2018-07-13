@@ -33,18 +33,7 @@ const styles = theme => ({
 class QuestionComponents extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: ""
-    };
   }
-
-  componentWillReceiveProps(nextProp) {
-    this.setState({ value: "" });
-  }
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
 
   render() {
     const { classes, question } = this.props;
@@ -62,8 +51,8 @@ class QuestionComponents extends React.Component {
             aria-label="gender"
             name="gender1"
             className={classes.group}
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={this.props.value}
+            onChange={this.props.handleChange}
           >
             {question.options.map((option, index) => {
               return (
