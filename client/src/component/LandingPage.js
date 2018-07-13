@@ -8,7 +8,7 @@ import QuestionCard from "./Question/QuestionCard";
 class LandingPage extends Component {
   state = {
     islaunched: false,
-    testPeriod: 9
+    testPeriod: 299
   };
   static propTypes = {
     prop: PropTypes
